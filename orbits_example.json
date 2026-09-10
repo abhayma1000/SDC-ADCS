@@ -1,0 +1,54 @@
+{
+  "orbits": [
+    {
+      "name": "goat1_baseline_486km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0002105,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.025
+    },
+    {
+      "name": "iss_like_408km",
+      "semi_major_axis_m": 6786000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 51.6,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.025
+    },
+    {
+      "name": "sun_sync_600km",
+      "semi_major_axis_m": 6978000,
+      "eccentricity": 0.001,
+      "inclination_deg": 97.8,
+      "raan_deg": 45,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.025
+    },
+    {
+      "name": "polar_500km",
+      "semi_major_axis_m": 6878000,
+      "eccentricity": 0.0005,
+      "inclination_deg": 98.0,
+      "raan_deg": 90,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.025
+    },
+    {
+      "name": "equatorial_400km",
+      "semi_major_axis_m": 6778000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 0.0,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.025
+    }
+  ]
+}
