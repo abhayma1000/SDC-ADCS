@@ -1,0 +1,304 @@
+{
+  "orbits": [
+    {
+      "name": "iss_coplanar_410km",
+      "semi_major_axis_m": 6788000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 51.6,
+      "raan_deg": 15.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "sso_morning_500km",
+      "semi_major_axis_m": 6878000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 97.4,
+      "raan_deg": 30.0,
+      "arg_periapsis_deg": 45.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "sso_noon_550km",
+      "semi_major_axis_m": 6928000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 97.6,
+      "raan_deg": 120.0,
+      "arg_periapsis_deg": 90.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "dusk_dawn_sso_600km",
+      "semi_major_axis_m": 6978000,
+      "eccentricity": 0.0005,
+      "inclination_deg": 97.8,
+      "raan_deg": 180.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "sso_high_altitude_650km",
+      "semi_major_axis_m": 7028000,
+      "eccentricity": 0.0004,
+      "inclination_deg": 98.0,
+      "raan_deg": 210.0,
+      "arg_periapsis_deg": 30.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "starlink_shell1_mid_inc_530km",
+      "semi_major_axis_m": 6908000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 53.0,
+      "raan_deg": 45.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "starlink_shell2_mid_inc_540km",
+      "semi_major_axis_m": 6918000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 53.2,
+      "raan_deg": 90.0,
+      "arg_periapsis_deg": 60.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "kuiper_like_mid_inc_590km",
+      "semi_major_axis_m": 6968000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 51.9,
+      "raan_deg": 135.0,
+      "arg_periapsis_deg": 120.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "oneweb_low_phasing_450km",
+      "semi_major_axis_m": 6828000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 87.9,
+      "raan_deg": 60.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "pure_equatorial_low_350km",
+      "semi_major_axis_m": 6728000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 0.0,
+      "raan_deg": 0.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "equatorial_mid_450km",
+      "semi_major_axis_m": 6828000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 0.0,
+      "raan_deg": 0.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "equatorial_high_550km",
+      "semi_major_axis_m": 6928000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 0.0,
+      "raan_deg": 0.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "tropical_low_inc_20deg_400km",
+      "semi_major_axis_m": 6778000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 20.0,
+      "raan_deg": 25.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "tropical_mid_inc_28deg_500km",
+      "semi_major_axis_m": 6878000,
+      "eccentricity": 0.0004,
+      "inclination_deg": 28.5,
+      "raan_deg": 75.0,
+      "arg_periapsis_deg": 15.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "mid_latitude_coverage_35deg_480km",
+      "semi_major_axis_m": 6858000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 35.0,
+      "raan_deg": 110.0,
+      "arg_periapsis_deg": 40.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "mid_latitude_coverage_45deg_520km",
+      "semi_major_axis_m": 6898000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 45.0,
+      "raan_deg": 160.0,
+      "arg_periapsis_deg": 80.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "high_inclination_65deg_430km",
+      "semi_major_axis_m": 6808000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 65.0,
+      "raan_deg": 200.0,
+      "arg_periapsis_deg": 10.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "high_inclination_70deg_570km",
+      "semi_major_axis_m": 6948000,
+      "eccentricity": 0.0005,
+      "inclination_deg": 70.0,
+      "raan_deg": 240.0,
+      "arg_periapsis_deg": 50.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "true_polar_90deg_400km",
+      "semi_major_axis_m": 6778000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 90.0,
+      "raan_deg": 0.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "true_polar_90deg_550km",
+      "semi_major_axis_m": 6928000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 90.0,
+      "raan_deg": 90.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "retrograde_low_inc_100deg_420km",
+      "semi_major_axis_m": 6798000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 100.0,
+      "raan_deg": 30.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "retrograde_mid_inc_110deg_500km",
+      "semi_major_axis_m": 6878000,
+      "eccentricity": 0.0004,
+      "inclination_deg": 110.0,
+      "raan_deg": 80.0,
+      "arg_periapsis_deg": 20.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "slightly_eccentric_300x500km",
+      "semi_major_axis_m": 6778000,
+      "eccentricity": 0.0147,
+      "inclination_deg": 51.6,
+      "raan_deg": 10.0,
+      "arg_periapsis_deg": 180.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "slightly_eccentric_350x650km",
+      "semi_major_axis_m": 6878000,
+      "eccentricity": 0.0218,
+      "inclination_deg": 97.4,
+      "raan_deg": 40.0,
+      "arg_periapsis_deg": 270.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "vleo_fast_decay_280km",
+      "semi_major_axis_m": 6658000,
+      "eccentricity": 0.0001,
+      "inclination_deg": 51.6,
+      "raan_deg": 0.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "vleo_polar_demo_300km",
+      "semi_major_axis_m": 6678000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 96.6,
+      "raan_deg": 15.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "short_lifespan_testing_320km",
+      "semi_major_axis_m": 6698000,
+      "eccentricity": 0.0002,
+      "inclination_deg": 42.0,
+      "raan_deg": 105.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "extended_lifetime_sso_620km",
+      "semi_major_axis_m": 6998000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 97.9,
+      "raan_deg": 250.0,
+      "arg_periapsis_deg": 45.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "extended_lifetime_mid_inc_680km",
+      "semi_major_axis_m": 7058000,
+      "eccentricity": 0.0004,
+      "inclination_deg": 55.0,
+      "raan_deg": 310.0,
+      "arg_periapsis_deg": 90.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    },
+    {
+      "name": "upper_bound_leo_700km",
+      "semi_major_axis_m": 7078000,
+      "eccentricity": 0.0005,
+      "inclination_deg": 98.2,
+      "raan_deg": 350.0,
+      "arg_periapsis_deg": 0.0,
+      "true_anomaly_deg": 0.0,
+      "duration_hours": 0.0833
+    }
+  ]
+}
