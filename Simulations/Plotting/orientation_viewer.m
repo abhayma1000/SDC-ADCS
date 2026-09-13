@@ -31,7 +31,7 @@ title('NED Animation');
 h = poseplot(quaternion(eye(3), 'rotmat', 'frame'), [0 0 0], 'Parent', ax);
 
 
-v = VideoWriter('C:\Users\abhay\Videos\something2.avi');
+v = VideoWriter('C:\Users\jajli\Videos\something2.avi');
 v.FrameRate = fps;
 open(v);
 

@@ -20,18 +20,18 @@ end
 
 %% Euler angles
 
-%{
-plot(mission.SimOutput.tout(12:end, :), eul_err(:, 1), 'r', 'DisplayName', 'Error'); hold on;
-plot(mission.SimOutput.tout(12:end, :), eul_err(:, 2), 'g', 'DisplayName', 'Error');
-plot(mission.SimOutput.tout(12:end, :), eul_err(:, 3), 'b', 'DisplayName', 'Error');
-%}
+{
+%plot(mission.SimOutput.tout(12:end, :), eul_err(:, 1), 'r', 'DisplayName', 'Error'); hold on;
+%plot(mission.SimOutput.tout(12:end, :), eul_err(:, 2), 'g', 'DisplayName', 'Error');
+%plot(mission.SimOutput.tout(12:end, :), eul_err(:, 3), 'b', 'DisplayName', 'Error');
+}
 
 %% Quat error (I think)
 
 
 plot(mission.SimOutput.tout(12:end, :), sm_err(:, 1), 'r', 'DisplayName', 'Error'); hold on;
 plot(mission.SimOutput.tout(12:end, :), sm_err(:, 2), 'g', 'DisplayName', 'Error');
-plot(mission.SimOutput.tout(12:end, :), sm_err(:, 3), 'b', 'DisplayName', 'Error');
+plot(mission.SimOutput.tout(12:end, :), sm_err(:, 3), 'b', 'DisplayName', 'Error'); hold off;
 
 
 
