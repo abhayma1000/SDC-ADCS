@@ -1,7 +1,7 @@
 function Q = createProcessNoise(dt)
 
 % TODO need correct values for these variance values
-gyro_var = 0.001 * dt;
+gyro_var = 0.1 * dt;
 gyro_bias_var = 9.1e-1;
 gyro_var_diag = diag([gyro_var; gyro_var; gyro_var]);
 gyro_bias_var_diag = diag([gyro_bias_var; gyro_bias_var; gyro_bias_var]);

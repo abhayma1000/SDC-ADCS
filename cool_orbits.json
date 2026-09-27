@@ -8,7 +8,7 @@
       "raan_deg": 15.0,
       "arg_periapsis_deg": 0.0,
       "true_anomaly_deg": 0.0,
-      "duration_hours": 0.0833
+      "duration_hours": 0.082
     },
     {
       "name": "sso_morning_500km",

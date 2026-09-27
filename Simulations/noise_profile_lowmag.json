@@ -1,0 +1,178 @@
+{
+  "sensors": {
+    "gyro": {
+      "units_note": "angular rate in deg/s, matching tumble_rate_deg_s elsewhere in this project",
+      "white_noise": {
+        "mean": 0.0,
+        "std_dev": 0.001,
+        "units": "deg/s"
+      },
+      "bias": {
+        "value": 0.0,
+        "units": "deg/s"
+      },
+      "snr_db": 35,
+      "drift_per_step": {
+        "value": 0.0,
+        "units": "deg/s per step"
+      },
+      "other_noise": [
+        {
+          "name": "temperature_sensitivity",
+          "value": 0.0,
+          "units": "deg/s per degC"
+        },
+        {
+          "name": "scale_factor_error",
+          "value": 0.0,
+          "units": "percent"
+        },
+        {
+          "name": "saturation",
+          "value": 0.0,
+          "units": "deg/s"
+        }
+      ]
+    },
+    "magnetometer": {
+      "units_note": "field measurement in microtesla (uT)",
+      "white_noise": {
+        "mean": 0.0,
+        "std_dev": 0.3,
+        "units": "uT"
+      },
+      "bias": {
+        "value": 4.0,
+        "units": "uT"
+      },
+      "snr_db": 30,
+      "drift_per_step": {
+        "value": 0.0,
+        "units": "uT per step"
+      },
+      "other_noise": [
+        {
+          "name": "soft_iron_scale_error",
+          "value": 0.0,
+          "units": "percent"
+        },
+        {
+          "name": "cross_axis_sensitivity",
+          "value": 0.0,
+          "units": "percent"
+        }
+      ]
+    },
+    "sun_sensor": {
+      "units_note": "sun-vector angle error in degrees",
+      "white_noise": {
+        "mean": 0.0,
+        "std_dev": 0.0,
+        "units": "deg"
+      },
+      "bias": {
+        "value": 0.0,
+        "units": "deg"
+      },
+      "snr_db": 28,
+      "drift_per_step": {
+        "value": 0.0,
+        "units": "deg per step"
+      },
+      "other_noise": [
+        {
+          "name": "albedo_interference",
+          "value": 0.0,
+          "units": "deg"
+        },
+        {
+          "name": "eclipse_dropout_probability",
+          "value": 0.0,
+          "units": "fraction"
+        }
+      ]
+    },
+    "star_tracker": {
+      "units_note": "attitude angle error in degrees; modeled here as a $10-class camera+software tracker, not a real flight star tracker",
+      "white_noise": {
+        "mean": 0.0,
+        "std_dev": 0.0,
+        "units": "deg"
+      },
+      "bias": {
+        "value": 0.0,
+        "units": "deg"
+      },
+      "snr_db": 22,
+      "drift_per_step": {
+        "value": 0.0,
+        "units": "deg per step"
+      },
+      "other_noise": [
+        {
+          "name": "false_star_id_rate",
+          "value": 0.0,
+          "units": "percent"
+        },
+        {
+          "name": "frame_dropout_probability",
+          "value": 0.0,
+          "units": "percent"
+        }
+      ]
+    },
+    "gps": {
+      "units_note": "position error in meters",
+      "white_noise": {
+        "mean": 0.0,
+        "std_dev": 0.0,
+        "units": "m"
+      },
+      "bias": {
+        "value": 0.0,
+        "units": "m"
+      },
+      "snr_db": 35,
+      "drift_per_step": {
+        "value": 0.0,
+        "units": "m per step"
+      },
+      "other_noise": [
+        {
+          "name": "multipath",
+          "value": 0.0,
+          "units": "m"
+        },
+        {
+          "name": "fix_dropout_probability",
+          "value": 0.0,
+          "units": "percent"
+        }
+      ]
+    },
+    "clock": {
+      "units_note": "time error in microseconds unless noted; drift in parts-per-million matches clock_drift_rate usage elsewhere in this project",
+      "white_noise": {
+        "mean": 0.0,
+        "std_dev": 0.0,
+        "units": "us"
+      },
+      "bias": {
+        "value": 0.0,
+        "units": "us"
+      },
+      "snr_db": 0,
+      "drift_per_step": {
+        "value": 0.0,
+        "units": "ppm per step"
+      },
+      "other_noise": [
+        {
+          "name": "temperature_drift",
+          "value": 0.0,
+          "units": "ppm per degC"
+        }
+      ]
+    }
+  }
+}

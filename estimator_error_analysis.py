@@ -67,7 +67,26 @@ def estimator_error(truth_time, truth_quat, est):
     eul_err = wrap_to_180(quat_to_euler_xyz_deg(q_truth) - quat_to_euler_xyz_deg(q_est))
     angle_err_deg = 2 * np.rad2deg(np.arccos(np.clip(np.abs(q_err[:, 0]), -1.0, 1.0)))
 
-    return {"t": t, "sm_err": sm_err, "eul_err": eul_err, "angle_err_deg": angle_err_deg}
+    sigma_deg = None
+    if est.get("P") is not None:
+        P = est["P"]
+        var_rad2 = np.clip(np.diagonal(P, axis1=1, axis2=2)[:, 0:3], 0, None)
+        sigma_raw = np.rad2deg(np.sqrt(var_rad2))
+        if sigma_raw.shape[0] == t.shape[0]:
+            sigma_deg = sigma_raw
+        else:
+            p_time = np.linspace(t[0], t[-1], sigma_raw.shape[0])
+            sigma_deg = np.empty((t.shape[0], 3))
+            for i in range(3):
+                sigma_deg[:, i] = np.interp(t, p_time, sigma_raw[:, i])
+
+    return {
+        "t": t,
+        "sm_err": sm_err,
+        "eul_err": eul_err,
+        "angle_err_deg": angle_err_deg,
+        "sigma_deg": sigma_deg,
+    }
 
 def analyze_file(path):
     t_truth, sig = load_simulink_dataset(path)
@@ -113,6 +132,37 @@ def plot_scenario(name, results, out_dir):
     plt.close(fig)
     return out_path
 
+def plot_scenario_rpy_covariance(name, results, out_dir, k_sigma=3):
+    if len(results) == 0:
+        return None
+
+    fig, axes = plt.subplots(3, 1, figsize=(10, 9), sharex=True)
+    axis_labels = ["Roll (X)", "Pitch (Y)", "Yaw (Z)"]
+
+    for i, ax in enumerate(axes):
+        for est_name, r in results.items():
+            color = COLORS.get(est_name)
+            ax.plot(r["t"], r["eul_err"][:, i], color=color, label=f"{est_name} error")
+
+            sigma = r.get("sigma_deg")
+            if sigma is not None:
+                bound = k_sigma * sigma[:, i]
+                ax.plot(r["t"], bound, color=color, linestyle="--", linewidth=0.8,
+                         label=f"{est_name} \u00b1{k_sigma}\u03c3")
+                ax.plot(r["t"], -bound, color=color, linestyle="--", linewidth=0.8)
+
+        ax.set_ylabel(f"{axis_labels[i]}\nerror (deg)")
+        ax.grid(alpha=0.3)
+        ax.legend(loc="upper right", fontsize=8, ncol=2)
+
+    axes[0].set_title(f"Roll/Pitch/Yaw error vs. {k_sigma}\u03c3 covariance bounds \u2014 {name}")
+    axes[-1].set_xlabel("Time (s)")
+    fig.tight_layout()
+    out_path = os.path.join(out_dir, f"{name}_rpy_covariance.png")
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+    return out_path
+
 def plot_summary(all_results, out_dir):
     scenario_names = list(all_results.keys())
     est_names = QUAT_ESTIMATORS
@@ -154,6 +204,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-dir", required=True)
     parser.add_argument("--out-dir", default="figures")
+    parser.add_argument("--sigma", type=float, default=3.0,
+                         help="Covariance bound multiplier for the RPY plot (default: 3)")
     args = parser.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)
@@ -173,6 +225,8 @@ def main():
         all_results[name] = results
         out_path = plot_scenario(name, results, args.out_dir)
         print(f"  wrote {out_path}")
+        rpy_path = plot_scenario_rpy_covariance(name, results, args.out_dir, k_sigma=args.sigma)
+        print(f"  wrote {rpy_path}")
 
     if all_results:
         summary_path = plot_summary(all_results, args.out_dir)

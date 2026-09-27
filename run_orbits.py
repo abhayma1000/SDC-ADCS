@@ -4,7 +4,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 def load_orbits(orbits_path: Path) -> list[dict]:
     with open(orbits_path, "r") as f:
         config = json.load(f)
@@ -19,8 +18,14 @@ def load_orbits(orbits_path: Path) -> list[dict]:
 
     return orbits
 
-
-def run_one_orbit(matlab_exe: str, sims_dir: Path, orbit: dict, index: int, out_path: Path) -> bool:
+def run_one_orbit(
+    matlab_exe: str,
+    sims_dir: Path,
+    orbit: dict,
+    index: int,
+    out_path: Path,
+    noise_profile_path: Path,
+) -> bool:
     name = orbit.get("name", f"orbit_{index}")
 
     param_path = sims_dir / f"_tmp_params_{name}.json"
@@ -29,7 +34,8 @@ def run_one_orbit(matlab_exe: str, sims_dir: Path, orbit: dict, index: int, out_
 
     matlab_cmd = (
         f"try; "
-        f"run_simulink_batch('{param_path.as_posix()}', '{out_path.as_posix()}'); "
+        f"run_simulink_batch('{param_path.as_posix()}', '{out_path.as_posix()}', "
+        f"'{noise_profile_path.as_posix()}'); "
         f"catch e; disp(getReport(e)); exit(1); end; "
         f"exit(0);"
     )
@@ -42,7 +48,6 @@ def run_one_orbit(matlab_exe: str, sims_dir: Path, orbit: dict, index: int, out_
     param_path.unlink(missing_ok=True)
 
     return result.returncode == 0
-
 
 def main():
     parser = argparse.ArgumentParser(description="Batch-run orbits through run_simulink.m")
@@ -75,11 +80,28 @@ def main():
         action="store_true",
         help="Skip orbits whose output .mat file already exists in the data folder",
     )
+    parser.add_argument(
+        "--noise-profile",
+        type=Path,
+        default=None,
+        help=(
+            "Path to noise_profile.json listing per-sensor noise modifiers "
+            "(default: noise_profile.json inside --sims-dir)"
+        ),
+    )
     args = parser.parse_args()
 
     sims_dir = args.sims_dir.resolve()
     data_dir = args.data_dir.resolve()
     data_dir.mkdir(parents=True, exist_ok=True)
+
+    noise_profile_path = (args.noise_profile or (sims_dir / "noise_profile.json")).resolve()
+    if not noise_profile_path.exists():
+        print(
+            f"WARNING: {noise_profile_path} not found. "
+            "All sensor noise will be treated as disabled for this batch.",
+            file=sys.stderr,
+        )
 
     if not (sims_dir / "run_simulink_batch.m").exists():
         print(
@@ -100,7 +122,7 @@ def main():
             continue
 
         print(f"[{i+1}/{len(orbits)}] {name}: running...")
-        ok = run_one_orbit(args.matlab, sims_dir, orbit, i, out_path)
+        ok = run_one_orbit(args.matlab, sims_dir, orbit, i, out_path, noise_profile_path)
 
         if ok:
             print(f"    -> saved {out_path}")
@@ -113,7 +135,6 @@ def main():
     if failures:
         print("Failed orbits:", ", ".join(failures))
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()

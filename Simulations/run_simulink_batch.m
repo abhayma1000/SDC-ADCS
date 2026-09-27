@@ -1,6 +1,11 @@
-function run_simulink_batch(paramsFile, outFile)
+function run_simulink_batch(paramsFile, outFile, noiseProfileFile)
+
+if nargin < 3
+    noiseProfileFile = fullfile(fileparts(mfilename('fullpath')), 'noise_profile.json');
+end
 
 params = jsondecode(fileread(paramsFile));
+noise = loadNoiseProfile(noiseProfileFile);
 
 mission.mdl = "SimulinkModel";
 open_system(mission.mdl);
@@ -21,6 +26,43 @@ else
 end
 
 clock_drift_rate = 0.5;
+
+sensor_names = ["gyro", "magnetometer", "sun_sensor", "star_tracker", "gps", "clock"];
+noise_var_names = strings(1, numel(sensor_names));
+for k = 1:numel(sensor_names)
+    key = sensor_names(k);
+    var_name = key + "_noise";
+    noise_var_names(k) = var_name;
+    if isfield(noise.sensors, key)
+        assignin('base', char(var_name), noise.sensors.(key));
+    else
+        assignin('base', char(var_name), struct());
+    end
+end
+
+gyroBlk = mission.mdl + "/Embedded Computer/Sensors/Create Gyro/Three-axis Gyroscope";
+try
+    g = noise.sensors.gyro;
+
+    if isfield(g, 'bias') && noiseFieldActive(g.bias.value)
+        set_param(gyroBlk, 'g_bias', mat2str(repmat(g.bias.value, 1, 3)));
+    else
+        set_param(gyroBlk, 'g_bias', mat2str([0 0 0]));
+    end
+
+    if isfield(g, 'white_noise') && noiseFieldActive(g.white_noise.std_dev)
+        set_param(gyroBlk, 'g_pow', mat2str(repmat(g.white_noise.std_dev^2, 1, 3)));
+        set_param(gyroBlk, 'g_rand', 'on');
+    else
+        set_param(gyroBlk, 'g_rand', 'off');
+    end
+catch ME
+    warning('run_simulink_batch:gyroNoise', ...
+        'Could not apply gyro noise settings to %s -- leaving block as-is. %s', ...
+        gyroBlk, ME.message);
+end
+
+applySensorNoise(mission, noise);
 
 mission.Satellite.blk = mission.mdl + "/Dynamics/Spacecraft Dynamics";
 mission.Satellite.SemiMajorAxis  = params.semi_major_axis_m;
@@ -134,6 +176,6 @@ save(outFile, 'tout', 'yout', 'orbit_params', ...
 fprintf('Saved results for "%s" to %s\n', params.name, outFile);
 
 close_system(mission.mdl, 0);
-evalin('base', ['clear ' strjoin(base_vars, ' ') ';']);
+evalin('base', ['clear ' strjoin(base_vars, ' ') ' ' strjoin(cellstr(noise_var_names), ' ') ';']);
 
 end
