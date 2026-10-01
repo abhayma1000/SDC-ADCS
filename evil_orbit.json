@@ -1,0 +1,15 @@
+{
+  "orbits": [
+    {
+  "name": "goat1_baseline_486km",
+  "semi_major_axis_m": 6865000,
+  "eccentricity": 0.0002105,
+  "inclination_deg": 97.4,
+  "raan_deg": 0,
+  "arg_periapsis_deg": 0,
+  "true_anomaly_deg": 0,
+  "duration_hours": 0.025,
+  "initial_quaternion": [0.7071, 0.7071, 0, 0]
+}
+  ]
+}

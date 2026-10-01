@@ -1,0 +1,64 @@
+{
+  "orbits": [
+    {
+      "name": "goat1_baseline_4861km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0003,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.08334
+    },
+    {
+      "name": "goat1_baseline_4862km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0004,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.08334
+    },
+    {
+      "name": "goat1_baseline_4863km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0005,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.08334
+    },
+    {
+      "name": "goat1_baseline_4864km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0006,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.08334
+    },
+    {
+      "name": "goat1_baseline_4865km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0007,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.08334
+    },
+    {
+      "name": "goat1_baseline_4866km",
+      "semi_major_axis_m": 6865000,
+      "eccentricity": 0.0008,
+      "inclination_deg": 97.4,
+      "raan_deg": 0,
+      "arg_periapsis_deg": 0,
+      "true_anomaly_deg": 0,
+      "duration_hours": 0.08334
+    }
+  ]
+}
